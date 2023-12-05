@@ -163,6 +163,12 @@ body {
     background: linear-gradient(to bottom, orange, rgb(255, 51, 0), orange, rgb(255, 51, 0))
 }
 
+@media (max-width: 1199.98px) {
+    .about {
+        margin-top: 19vw;
+    }
+}
+
 @media (max-width: 767.98px) {
     .about img {
         width: 20vw;

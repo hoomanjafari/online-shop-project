@@ -1,0 +1,82 @@
+<!-- ================( navbars )======================== -->
+
+<div class="clear_fixed"></div>
+<nav class="main-nav">
+    <ul class="ul-left">
+        <li><a href="#">ورود / ثبت نام</a></li>
+    </ul>
+    <ul class="ul-middle">
+        <li><a href="#">درباره ما</a></li>
+        <li class="dropdown">
+            <i class="fa fa-arrow-down"></i>
+            محصولات
+            <div class="dropdown-content">
+                <div>
+                    <a href="#">کفش</a>
+                    <a href="#">کیف</a>
+                    <a href="#">شال</a>
+                </div>
+            </div>
+        </li>
+        <li><a href="#">ارتباط با ما</a></li>
+    </ul>
+    <ul class="ul-right">
+        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+    </ul>
+</nav>
+<div class="clear_fixed"></div>
+<!-- ----------------------------------------------------------- -->
+
+<nav class="nav-response-fixed">
+    <ul>
+        <button class="btn-burger" onclick="MenuBar()"><i class="fa fa-bars"></i></button>
+        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li><a href="#"><i class="fa fa-home"></i></a></li>
+    </ul>
+</nav>
+<!-- ----------------------------------------------------------- -->
+
+<nav class="nav-responsive" id="nav-responsive">
+    <ul>
+        <button class="btn-cross" onclick="CloseMenu()"><i class="fa fa-window-close"></i></button>
+
+
+        <form class="nav-search-box">
+            <input type="search" placeholder="... جیستجو">
+            <button type="button"><i class="fa fa-search"></i></button>
+        </form>
+
+        <li>
+            <a href="#">صفحه نخصت</a>
+        </li>
+        <li>
+            <a href="#">ورود / ثبت نام</a>
+        </li>
+        <li class="dropleft">
+            <i class="fa fa-arrow-down"> </i>
+            <a href="#"> محصولات </a>
+            <div class="dropleft-content">
+                <a href="#">کفش</a>
+                <a href="#">کیف</a>
+                <a href="#">شال</a>
+            </div>
+        </li>
+        <li>
+            <a href="#">ارتباط با ما</a>
+        </li>
+        <li>
+            <a href="#">درباره ما</a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    function MenuBar() {
+        document.getElementById("nav-responsive").style.width = "46vw"
+    }
+
+    function CloseMenu() {
+        document.getElementById("nav-responsive").style.width = "0"
+    }
+</script>

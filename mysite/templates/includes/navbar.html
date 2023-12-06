@@ -1,9 +1,8 @@
 <!-- ================( navbars )======================== -->
-
 <div class="clear_fixed"></div>
 <nav class="main-nav">
     <ul class="ul-left">
-        <li><a href="#">ورود / ثبت نام</a></li>
+        <li><button onclick="LoginForm()">ورود / ثبت نام</button></li>
     </ul>
     <ul class="ul-middle">
         <li><a href="#">درباره ما</a></li>
@@ -31,6 +30,9 @@
 <nav class="nav-response-fixed">
     <ul>
         <button class="btn-burger" onclick="MenuBar()"><i class="fa fa-bars"></i></button>
+        <li class="nav-responsive-login-li">
+            <button class="nav-responsive-login" onclick="LoginForm()">ورود / ثبت نام</button>
+        </li>
         <li><a href="#"><i class="fa fa-search"></i></a></li>
         <li><a href="#"><i class="fa fa-home"></i></a></li>
     </ul>
@@ -43,16 +45,14 @@
 
 
         <form class="nav-search-box">
-            <input type="search" placeholder="... جیستجو">
+            <input type="search" placeholder="... جستجو">
             <button type="button"><i class="fa fa-search"></i></button>
         </form>
 
         <li>
             <a href="#">صفحه نخصت</a>
         </li>
-        <li>
-            <a href="#">ورود / ثبت نام</a>
-        </li>
+
         <li class="dropleft">
             <i class="fa fa-arrow-down"> </i>
             <a href="#"> محصولات </a>

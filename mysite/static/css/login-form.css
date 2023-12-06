@@ -1,0 +1,96 @@
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    right: 2vw;
+    top: 0;
+    color: #000;
+    font-size: 4vw;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #12151cc2;
+    z-index: 15;
+    display: none;
+}
+
+.login-form {
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    width: 40%;
+    background-color: white;
+    text-align: center;
+    border-radius: 2vw;
+    padding: 4vw;
+    z-index: 12;
+    /* display: none; */
+}
+
+.login-form input {
+    display: block;
+    width: 100%;
+    padding: 0.8vw;
+    margin-bottom: 1vw;
+    border-radius: 1vw;
+    border: none;
+    background-color: #1d222f13;
+}
+
+.login-form label {
+    font-weight: 550;
+    font-size: 1.6vw;
+}
+
+.login-form button {
+    background-color: #1D222F;
+    width: 60%;
+    padding: 0.8vw;
+    border-radius: 1vw;
+    border: none;
+    font-size: 2vw;
+    color: white;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    opacity: 70%;
+}
+
+@media (max-width: 767.98px) {
+    .login-container label {
+        font-size: 3.6vw;
+    }
+    .login-container input {
+        font-size: 3.6vw;
+        margin-bottom: 4.4vw;
+    }
+}

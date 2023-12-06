@@ -1,0 +1,29 @@
+<div class="login-container" id="login-form">
+    <div class="login-form animate">
+        <span onclick="document.getElementById('login-form').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+        <form>
+            <label for="login-input-1">نام و نام خانوادگی</label>
+            <input type="text" id="login-input-1">
+            <label for="login-input-2">ایمیل</label>
+            <input type="text" id="login-input-2">
+            <label for="login-input-3">رمز ورود</label>
+            <input type="text" id="login-input-3">
+            <button type="button">ورود</button>
+        </form>
+    </div>
+</div>
+
+
+ <script>
+     function LoginForm() {
+         document.getElementById("login-form").style.display = "block"
+     }
+
+     var login_form = document.getElementById("login-form");
+     window.onclick = function (event) {
+         if (event.target == login_form) {
+             login_form.style.display = "none"
+         }
+     }
+ </script>

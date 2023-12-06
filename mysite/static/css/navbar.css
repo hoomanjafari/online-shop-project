@@ -30,11 +30,19 @@ a {
 .ul-left {
     float: left;
 }
-.ul-left a {
-    background-color: rgb(255, 255, 255);
-    color: black !important;
-    padding: 1vw;
+.ul-left button {
+    background-color: #1D222F;
+    color: white;
+    font-size: 2vw;
+    padding: 1vw 2vw;
     border-radius: 2vw;
+    border: none;
+    cursor: pointer;
+}
+.ul-left button:hover {
+    color: white;
+    background-color: #295BE9;
+    transition: 0.2s;
 }
 .main-nav ul {
     display: inline-block;
@@ -104,7 +112,10 @@ a {
     z-index: 10;
     display: none;
 }
-
+.nav-response-fixed ul {
+    margin: 0;
+    padding: 0;
+}
 .nav-response-fixed li {
     list-style-type: none;
     display: inline-block;
@@ -153,6 +164,18 @@ a {
 
 .nav-responsive li:active {
     background-color: #295BE9;
+}
+.nav-responsive-login {
+    border: none;
+    font-size: 3.6vw;
+    background-color: #295BE9 !important;
+    border-radius: 9vw;
+    padding: 2.4vw;
+    color: white;
+}
+
+.nav-responsive-login-li {
+    vertical-align: top;
 }
 
 .nav-responsive a {

@@ -2,7 +2,17 @@
 <div class="clear_fixed"></div>
 <nav class="main-nav">
     <ul class="ul-left">
-        <li><button onclick="LoginForm()">ورود / ثبت نام</button></li>
+        {% if not request.user.is_authenticated %}
+            <li><button onclick="LoginForm()">ورود / ثبت نام</button></li>
+        {% elif request.user.is_authenticated %}
+            <div class="profile-box-container">
+                <p><i class="fa fa-user"></i>{{ request.user.username|truncatechars:7 }}</p>
+                <div class="profile-box">
+                    <a href="#">پنل کاربری</a>
+                    <a href="{% url 'accounts:logout' %}">خروج از حساب</a>
+                </div>
+            </div>
+        {% endif %}
     </ul>
     <ul class="ul-middle">
         <li><a href="#">درباره ما</a></li>
@@ -30,13 +40,29 @@
 <nav class="nav-response-fixed">
     <ul>
         <button class="btn-burger" onclick="MenuBar()"><i class="fa fa-bars"></i></button>
+        {% if not request.user.is_authenticated %}
         <li class="nav-responsive-login-li">
             <button class="nav-responsive-login" onclick="LoginForm()">ورود / ثبت نام</button>
         </li>
+        {% elif request.user.is_authenticated %}
+            <li>
+            <div class="profile-box-container">
+                <p><i class="fa fa-user"></i>{{ request.user.username|truncatechars:7 }}</p>
+                <div class="profile-box">
+                    <a href="#">پنل کاربری</a>
+                    <a href="{% url 'accounts:logout' %}">خروج از حساب</a>
+                </div>
+            </div>
+            </li>
+        {% endif %}
         <li><a href="#"><i class="fa fa-search"></i></a></li>
         <li><a href="#"><i class="fa fa-home"></i></a></li>
     </ul>
 </nav>
+{#<div class="profile-box">#}
+{#    <a href="#">پنل کاربری</a>#}
+{#    <a href="{% url 'accounts:logout' %}">خروج از حساب</a>#}
+{#</div>#}
 <!-- ----------------------------------------------------------- -->
 
 <nav class="nav-responsive" id="nav-responsive">

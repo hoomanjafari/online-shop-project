@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegisterForm, UserLoginForm
 
 
@@ -29,3 +29,9 @@ class UserLoginView(View):
             elif user is None:
                 messages.error(request, 'ایمیل یا رمز عبور اشتباه است', 'danger')
                 return redirect('home:home')
+
+
+class UserLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect('home:home')

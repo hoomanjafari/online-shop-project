@@ -1,5 +1,5 @@
 <div class="login-container" id="login-form">
-    <div class="login-form animate">
+    <div class="login-form animate" id="login-box">
         <span onclick="document.getElementById('login-form').style.display='none'" class="close"
               title="Close Modal">&times;</span>
         <form>
@@ -9,7 +9,23 @@
             <input type="text" id="login-input-2">
             <label for="login-input-3">رمز ورود</label>
             <input type="text" id="login-input-3">
-            <button type="button">ورود</button>
+            <button class="login-btn" type="button">ورود</button>
+            <button onclick="SingUp()" class="sign-up-btn" type="button">ثبت نام</button>
+        </form>
+    </div>
+    <!-- ================( sign-up form )======================== -->
+    <div class="sign-up-form animate" id="sign-up-box">
+        <span onclick="document.getElementById('login-form').style.display='none'" class="close"
+              title="Close Modal">&times;
+        </span>
+        <form>
+            <h2>ایجاد حساب کاربری</h2>
+            <label for="login-input-2">ایمیل</label>
+            <input type="text" id="login-input-2">
+            <label for="login-input-3">رمز ورود</label>
+            <input type="text" id="login-input-3">
+            <button class="register-btn" type="button">ثبت نام</button>
+            <button onclick="SingIn()" class="sing-in-btn" type="button">ورود</button>
         </form>
     </div>
 </div>
@@ -26,4 +42,12 @@
              login_form.style.display = "none"
          }
      }
+     function SingUp() {
+            document.getElementById("login-box").style.display = "none"
+            document.getElementById("sign-up-box").style.display = "block"
+        }
+        function SingIn() {
+            document.getElementById("sign-up-box").style.display = "none"
+            document.getElementById("login-box").style.display = "block"
+        }
  </script>

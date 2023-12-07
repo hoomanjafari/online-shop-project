@@ -70,7 +70,7 @@
     font-size: 1.6vw;
 }
 
-.login-form button {
+.login-form .login-btn {
     background-color: #1D222F;
     width: 60%;
     padding: 0.8vw;
@@ -83,6 +83,94 @@
 
 .login-form button:hover {
     opacity: 70%;
+}
+
+.sing-in-btn {
+    background-color: #042e52;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 6vw;
+    padding: 1vw 2vw;
+    font-size: 1.5vw;
+    position: absolute;
+    bottom: 0.5vw;
+    left: 1vw;
+    cursor: pointer;
+}
+
+.sing-in-btn:hover {
+    opacity: 80%;
+}
+
+/*=======================( sign-up form )==========================*/
+
+.sign-up-form {
+    position: fixed;
+    left: 25%;
+    top: 25%;
+    width: 40%;
+    background-color: #295BE9;
+    color: white;
+    text-align: center;
+    border-radius: 2vw;
+    padding: 4vw;
+    z-index: 12;
+    display: none;
+}
+
+.sign-up-form h2 {
+    font-size: 2.6vw;
+    padding-bottom: 3vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+.sign-up-form input {
+    display: block;
+    width: 100%;
+    padding: 0.8vw;
+    margin-bottom: 1vw;
+    border-radius: 1vw;
+    border: none;
+    background-color: #042e52;
+    color: white;
+}
+
+.sign-up-form label {
+    font-weight: 550;
+    font-size: 1.6vw;
+}
+
+.sign-up-form .register-btn {
+    background-color: white;
+    color: #042e52;
+    font-weight: 550;
+    padding: 1vw;
+    font-size: 1.6vw;
+    width: 60%;
+    border: none;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+
+.sign-up-form .register-btn:hover {
+    background-color: #042e52;
+    color: white;
+    opacity: 70%;
+}
+
+.sign-up-btn {
+    background-color: #295BE9;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 6vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+    position: absolute;
+    bottom: 0.5vw;
+    left: 1vw;
 }
 
 @media (max-width: 767.98px) {

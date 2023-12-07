@@ -2,14 +2,16 @@
     <div class="login-form animate" id="login-box">
         <span onclick="document.getElementById('login-form').style.display='none'" class="close"
               title="Close Modal">&times;</span>
-        <form>
-            <label for="login-input-1">نام و نام خانوادگی</label>
-            <input type="text" id="login-input-1">
-            <label for="login-input-2">ایمیل</label>
-            <input type="text" id="login-input-2">
-            <label for="login-input-3">رمز ورود</label>
-            <input type="text" id="login-input-3">
-            <button class="login-btn" type="button">ورود</button>
+        <form method="post", action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+{#            <label for="login-input-1">نام و نام خانوادگی</label>#}
+{#            <input type="text" id="login-input-1">#}
+{#            <label for="login-input-2">ایمیل</label>#}
+{#            <input type="text" id="login-input-2">#}
+{#            <label for="login-input-3">رمز ورود</label>#}
+{#            <input type="text" id="login-input-3">#}
+            {{ login_form.as_p }}
+            <button class="login-btn" type="submit">ورود</button>
             <button onclick="SingUp()" class="sign-up-btn" type="button">ثبت نام</button>
         </form>
     </div>
@@ -18,13 +20,15 @@
         <span onclick="document.getElementById('login-form').style.display='none'" class="close"
               title="Close Modal">&times;
         </span>
-        <form>
+        <form method="post", action="{% url 'accounts:register' %}">
+            {% csrf_token %}
             <h2>ایجاد حساب کاربری</h2>
-            <label for="login-input-2">ایمیل</label>
-            <input type="text" id="login-input-2">
-            <label for="login-input-3">رمز ورود</label>
-            <input type="text" id="login-input-3">
-            <button class="register-btn" type="button">ثبت نام</button>
+{#            <label for="login-input-2">ایمیل</label>#}
+{#            <input type="text" id="login-input-2">#}
+{#            <label for="login-input-3">رمز ورود</label>#}
+{#            <input type="text" id="login-input-3">#}
+            {{ register_form.as_p }}
+            <button class="register-btn" type="submit">ثبت نام</button>
             <button onclick="SingIn()" class="sing-in-btn" type="button">ورود</button>
         </form>
     </div>

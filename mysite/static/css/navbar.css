@@ -106,6 +106,7 @@ a {
     background-color: #295BE9;
     visibility: hidden;
     border-radius: 1vw;
+    z-index: 20;
 }
 
 .dropdown {

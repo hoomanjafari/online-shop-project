@@ -23,7 +23,6 @@ body {
 }
 
 .swiper {
-    margin-top: 9vw;
     margin-bottom: 9vw;
     width: 1000px;
     height: 550px;
@@ -47,6 +46,7 @@ body {
 
 @media (max-width: 1199.98px) {
     .swiper {
+        margin-top: 3vw;
         width: 90%;
         height: 500px;
     }

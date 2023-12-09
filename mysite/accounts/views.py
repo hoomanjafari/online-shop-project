@@ -41,3 +41,8 @@ class UserLogoutView(View):
 class AccountView(View):
     def get(self, request):
         return render(request, 'accounts/profile.html')
+
+
+class AccountDetailView(View):
+    def get(self, request):
+        return render(request, 'accounts/profile-details.html')

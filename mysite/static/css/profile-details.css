@@ -1,0 +1,201 @@
+body {
+    background: #12151c;
+}
+
+* {
+    margin: 0;
+    text-decoration: none;
+}
+
+.profile-content {
+    padding: 0 3vw 6vw;
+}
+
+.profile-menu {
+    width: calc(calc(100% / 3) - 1px);
+    background-color: #1d222f;
+    position: absolute;
+    display: inline-block;
+    right: 3vw;
+    border-radius: 0 3vw 3vw 0;
+}
+
+.profile-menu ul {
+    padding: 0 3vw 2vw 0;
+}
+
+.profile-menu li {
+    list-style-type: none;
+    margin-top: 1.6vw;
+    padding: 2vw;
+    text-align: right;
+    border-bottom: 1px solid white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.profile-content a {
+    color: white;
+    font-size: 1.6vw;
+}
+
+.profile-content i {
+    color: white;
+    padding-left: 1vw;
+    font-size: 1.6vw;
+}
+
+.profile-menu .user-profile-icon {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu a:hover {
+    font-size: 1.8vw;
+    transition: 0.3s;
+}
+
+.user-profile-icon i {
+    font-size: 6vw !important;
+    padding-top: 1vw;
+}
+
+.user-profile-icon {
+    border: none !important;
+}
+
+.arrow-right {
+    margin-right: 2vw;
+    font-size: 2.6vw !important;
+    color: #295be9 !important;
+}
+
+/* ==========================( profile-main-content )======================================== */
+
+.profile-main-content {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    width: calc(calc(100% / 1.7) - 30px);
+    border-radius: 3vw 0 0 3vw;
+    text-align: right;
+}
+.profile-main-content form {
+    padding: 6vw;
+}
+.profile-main-content div {
+    display: inline-block;
+    width: 80%;
+    margin-left: 1vw;
+}
+.profile-main-content input {
+    display: block;
+    width: 100%;
+    font-size: 1.5vw;
+    margin-bottom: 2vw;
+}
+.profile-main-content label {
+    font-size: 1.5vw;
+    display: block;
+    width: 100%;
+
+}
+.profile-main-content h2 {
+    padding: 3vw 0;
+    font-size: 2vw;
+}
+.profile-main-content p {
+    font-size: 1.5vw;
+}
+.profile-main-content button {
+    display: block;
+    margin: 1vw auto;
+    border: none;
+    background-color: rgb(104, 32, 32);
+    border-radius: 3vw;
+    padding: 1vw;
+    color: white;
+    font-size: 1.5vw;
+    cursor: pointer;
+}
+
+.profile-main-content button:active {
+    background-color: #12151c;
+}
+
+
+@media (max-width: 767.98px) {
+    .profile-content {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .profile-menu {
+        position: relative;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 12vw 0;
+        border-radius: 0 0 6vw 6vw;
+    }
+
+    .profile-menu li {
+        width: 60%;
+        margin: 0 auto !important;
+        padding: 6vw 0;
+    }
+
+    .profile-menu i {
+        font-size: 4vw;
+        padding-left: 6vw;
+    }
+
+    .profile-menu a {
+        font-size: 4vw;
+    }
+
+    .arrow-right {
+        font-size: 7vw !important;
+    }
+
+    .user-profile-icon i {
+        font-size: 16vw !important;
+        padding-top: 9vw;
+    }
+
+    .profile-main-content {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    ul {
+        padding: 0 !important;
+    }
+
+    .profile-content-container {
+        padding: 9vw;
+    }
+    .profile-main-content input {
+        font-size: 2vw;
+    }
+    .profile-main-content label {
+        font-size: 3vw;
+    }
+    .profile-main-content button {
+        font-size: 3.6vw;
+        padding: 2vw;
+    }
+    .profile-main-content h2 {
+        font-size: 3vw;
+    }
+    .profile-main-content p {
+        font-size: 2.3vw;
+    }
+    .profile-content-container {
+        padding: 30vw 9vw 9vw 9vw;
+    }
+}

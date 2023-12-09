@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب کاربری</title>
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    {% include 'includes/navbar.html' %}
+
+    <div class="profile-content-container">
+        <div class="profile-content">
+            <div class="profile-main-content">
+                <h1>سلام هومان عزیز</h1>
+                <p>برای تکمیل کردن اطلاعاتت و یا تغییر رمز ورود میتونی بری به بخش جزئیات</p>
+                <p class="profile-proud">( به این که فروشگاه کیف و کفش مارو انتخاب کردین برای خرید افتخار می کنیم )</p>
+            </div>
+            <div class="profile-menu">
+                <ul>
+                    <li class="user-profile-icon"><i class="fa fa-user"></i></li>
+                    <li><i class="fa fa-arrow-right arrow-right"></i><a href="#">پیشخوان</a></li>
+                    <li><a href="#">جزئیات حساب</a><i class="fa fa-user"></i></li>
+                    <li><a href="#">محصولات خریداری شده</a><i class="fa fa-shopping-bag"></i></li>
+                    <li><a href="#">خروج از حساب</a><i class="fa fa-sign-out"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% include 'includes/footer.html' %}
+</body>
+
+</html>

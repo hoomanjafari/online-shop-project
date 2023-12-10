@@ -18,30 +18,14 @@
     <div class="profile-content-container">
         <div class="profile-content">
             <div class="profile-main-content">
-                <form>
+                <form method="post" novalidate>
+                    {% csrf_token %}
                     <div>
-                        <label for="#detail-1">شماره موبایل</label>
-                        <input id="detail-1" type="text">
-
-
-                        <label for="#detail-2">نام و نام خانوادگی</label>
-                        <input id="detail-2" type="text">
-
-                        <label for="#detail-5">آدرس ایمیل</label>
-                        <input id="detail-5" type="text">
-
-                        <h2>تغییر رمز عبور<p>(اگر نمی‌خواهید تغییر دهید خالی بگذارید)</p>
-                        </h2>
-
-                        <label for="#detail-6">تکرار رمز عبور جدید</label>
-                        <input id="detail-6" type="text">
-
-                        <label for="#detail-7">رمز عبور کنونی</label>
-                        <input id="detail-7" type="text">
-                        <label for="#detail-7">رمز عبور جدید</label>
-                        <input id="detail-7" type="text">
+                        {{ profile_edit.as_p }}
+                        <h2>تغییر رمز عبور<p>(اگر نمی‌خواهید تغییر دهید خالی بگذارید)</p></h2>
+                        {{ profile_password }}
                     </div>
-                    <button type="button">ذخیره تغیرات</button>
+                    <button type="submit">ذخیره تغیرات</button>
                 </form>
             </div>
             <div class="profile-menu">

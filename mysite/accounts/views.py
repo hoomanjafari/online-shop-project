@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import UserRegisterForm, UserLoginForm
+from .forms import UserRegisterForm, UserLoginForm, ProfileEditForm, ProfilePasswordEditForm
+
 
 
 class UserRegisterView(View):
@@ -45,4 +46,26 @@ class AccountView(View):
 
 class AccountDetailView(View):
     def get(self, request):
-        return render(request, 'accounts/profile-details.html')
+        profile_edit = ProfileEditForm(instance=request.user.profile_related)
+        profile_password = ProfilePasswordEditForm
+        return render(request, 'accounts/profile-details.html', {
+            'profile_edit': profile_edit, 'profile_password': profile_password
+        })
+
+    def post(self, request):
+        form = ProfileEditForm(self.request.POST, instance=request.user.profile_related)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            messages.success(request, 'تغییرات اعمال شدن', 'success')
+            return redirect('accounts:account-detail')
+        else:
+            return render(request, 'accounts/profile-details.html', {'profile_edit': form})
+
+
+# class AccountPasswordView(View):
+#     def post(self, request):
+#         form = ProfilePasswordEditForm(self.request.POST)
+#         if form.is_valid():
+            

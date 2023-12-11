@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import UserRegisterForm, UserLoginForm, ProfileEditForm, ProfilePasswordEditForm
-
+from .forms import UserRegisterForm, UserLoginForm, ProfileEditForm
 
 
 class UserRegisterView(View):
@@ -14,9 +13,11 @@ class UserRegisterView(View):
         if form.is_valid():
             cd = form.cleaned_data
             User.objects.create_user(username=cd['email'], password=cd['password'])
+            messages.success(request, 'حساب کاربری شما ساخته شد', 'success')
             return redirect('home:home')
         else:
-            return render(request, 'home/index.html', UserRegisterForm())
+            messages.error(request, 'این ایمیل قبلا استفاده شده', 'danger')
+            return redirect('home:home')
 
 
 class UserLoginView(View):
@@ -40,32 +41,47 @@ class UserLogoutView(View):
 
 
 class AccountView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('home:home')
+        else:
+            return super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
         return render(request, 'accounts/profile.html')
 
 
 class AccountDetailView(View):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('home:home')
+        else:
+            return super().dispatch(request, *args, **kwargs)
+            
     def get(self, request):
         profile_edit = ProfileEditForm(instance=request.user.profile_related)
-        profile_password = ProfilePasswordEditForm
         return render(request, 'accounts/profile-details.html', {
-            'profile_edit': profile_edit, 'profile_password': profile_password
+            'profile_edit': profile_edit
         })
 
-    def post(self, request):
+    def post(self, request, **kwargs):
         form = ProfileEditForm(self.request.POST, instance=request.user.profile_related)
         if form.is_valid():
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.save()
-            messages.success(request, 'تغییرات اعمال شدن', 'success')
-            return redirect('accounts:account-detail')
+            cd = form.cleaned_data
+            if cd['new_password'] == '' and cd['new_password_confirm'] == '':
+                profile = form.save(commit=False)
+                profile.user = request.user
+                profile.save()
+                messages.success(request, 'تغییرات اعمال شدن', 'success')
+                return redirect('accounts:account-detail')
+            else:
+                profile = form.save(commit=False)
+                profile.user = request.user
+                profile.save()
+                user = get_object_or_404(User, pk=request.user.id)
+                user.set_password(cd['new_password'])
+                user.save()
+                messages.success(request, 'تغییرات اعمال شدن و رمز عبور شما تغییر کرد لطفا دوباره وارد حساب کاربری خود شوید', 'success')
+                return redirect('home:home')
         else:
             return render(request, 'accounts/profile-details.html', {'profile_edit': form})
-
-
-# class AccountPasswordView(View):
-#     def post(self, request):
-#         form = ProfilePasswordEditForm(self.request.POST)
-#         if form.is_valid():
-            

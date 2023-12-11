@@ -1,9 +1,20 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 from .models import Profile
+
 
 class UserRegisterForm(forms.Form):
     email = forms.EmailField(label='ایمیل ')
     password = forms.CharField(label='رمز ورود ')
+
+    def clean_email(self):
+        form_email = self.cleaned_data['email']
+        x = User.objects.filter(username=form_email)
+        if x.exists():
+            raise ValidationError('این ایمیل قبلا استفاده شده')
+        else:
+            return form_email
 
 
 class UserLoginForm(forms.Form):
@@ -12,6 +23,23 @@ class UserLoginForm(forms.Form):
 
 
 class ProfileEditForm(forms.ModelForm):
+    new_password = forms.CharField(
+        required=False, label=': رمز عبور جدید', label_suffix='*', widget=forms.PasswordInput()
+    )
+    new_password_confirm = forms.CharField(
+        required=False, label=': تکرار رمز عبور جدید', label_suffix='*', widget=forms.PasswordInput()
+    )
+
+    def clean(self):
+        cd = super().clean()
+        # p1 = cd.get('password')
+        p2 = cd.get('new_password')
+        p3 = cd.get('new_password_confirm')
+        if p2 and p3 and p2 != p3:
+            raise ValidationError('رمز عبور جدید و تکرار رمز عبور جدید یکی نیستند')
+        elif p2 != p3:
+            raise ValidationError('رمز عبور جدید و تکرار رمز عبور جدید یکی نیستند1231')
+
     class Meta:
         model = Profile
         fields = ('name', 'phone_number')
@@ -20,10 +48,3 @@ class ProfileEditForm(forms.ModelForm):
             'name': ': نام و نام خانواد.',
             'phone_number': ': شماره تماس.',
         }
-
-
-class ProfilePasswordEditForm(forms.Form):
-    password = forms.CharField(label=': رمز عبور کنونی', label_suffix='*', widget=forms.PasswordInput(attrs={
-        'autocomplete': 'off'
-    }))
-    new_password = forms.CharField(label=': رمز عبور جدید', label_suffix='*', widget=forms.PasswordInput())

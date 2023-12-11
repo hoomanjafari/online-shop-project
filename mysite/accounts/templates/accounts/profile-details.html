@@ -14,16 +14,14 @@
 <body>
 
     {% include 'includes/navbar.html' %}
-
+    {% include 'includes/messages.html' %}
     <div class="profile-content-container">
         <div class="profile-content">
             <div class="profile-main-content">
                 <form method="post" novalidate>
                     {% csrf_token %}
-                    <div>
+                    <div class="validation-error">
                         {{ profile_edit.as_p }}
-                        <h2>تغییر رمز عبور<p>(اگر نمی‌خواهید تغییر دهید خالی بگذارید)</p></h2>
-                        {{ profile_password }}
                     </div>
                     <button type="submit">ذخیره تغیرات</button>
                 </form>

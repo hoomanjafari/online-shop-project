@@ -21,7 +21,7 @@
             محصولات
             <div class="dropdown-content">
                 <div>
-                    <a href="#">کفش</a>
+                    <a href="{% url 'shop:shop-shoes' %}">کفش</a>
                     <a href="#">کیف</a>
                     <a href="#">شال</a>
                 </div>
@@ -56,7 +56,7 @@
             </li>
         {% endif %}
         <li><a href="#"><i class="fa fa-search"></i></a></li>
-        <li><a href="#"><i class="fa fa-home"></i></a></li>
+        <li><a href="{% url 'home:home' %}"><i class="fa fa-home"></i></a></li>
     </ul>
 </nav>
 {#<div class="profile-box">#}
@@ -83,7 +83,7 @@
             <i class="fa fa-arrow-down"> </i>
             <a href="#"> محصولات </a>
             <div class="dropleft-content">
-                <a href="#">کفش</a>
+                <a href="{% url 'shop:shop-shoes' %}">کفش</a>
                 <a href="#">کیف</a>
                 <a href="#">شال</a>
             </div>

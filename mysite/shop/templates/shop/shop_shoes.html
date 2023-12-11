@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه</title>
+    <link rel="stylesheet" href="/static/css/shop.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/login-form.css">
+</head>
+<body>
+    {% include 'includes/login-form.html' %}
+    {% include 'includes/navbar.html' %}
+    <div class="shoping-content">
+        <div class="shoping-container">
+            <div class="shoping-sort-by">
+                <h2>ترتیب نمایش</h2>
+                <select>
+                    <option value="قیمت">قیمت</option>
+                    <option value="جدید  ترین ها">جدید ترین ها</option>
+                    <option value="حراجی">حراجی</option>
+                </select>
+            </div>
+
+
+            <div class="shoping-main-content">
+            {% for p in shoes_p %}
+                <div class="shoping-items">
+                    <img src="{{ p.image.url }}" alt="">
+                    <h2>{{ p.subject }}</h2>
+                    <p>{{ p.body }}</p>
+                    <p>{{ p.price }}</p>
+                    <a href="#">اضافه شه به سبد کالا</a>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include 'includes/footer.html' %}
+</body>
+</html>

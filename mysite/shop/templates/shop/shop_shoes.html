@@ -17,21 +17,19 @@
         <div class="shoping-container">
             <div class="shoping-sort-by">
                 <h2>ترتیب نمایش</h2>
-                <select>
-                    <option value="قیمت">قیمت</option>
-                    <option value="جدید  ترین ها">جدید ترین ها</option>
-                    <option value="حراجی">حراجی</option>
-                </select>
+                <form method="get">
+                    {{ shop_select }}
+                    <button id="clickButton" type="submit" style="visibility: hidden"></button>
+                </form>
             </div>
 
-
             <div class="shoping-main-content">
-            {% for p in shoes_p %}
+            {% for i in shoes %}
                 <div class="shoping-items">
-                    <img src="{{ p.image.url }}" alt="">
-                    <h2>{{ p.subject }}</h2>
-                    <p>{{ p.body }}</p>
-                    <p>{{ p.price }}</p>
+                    <img src="{{ i.image.url }}" alt="">
+                    <h2>{{ i.subject }}</h2>
+                    <p>{{ i.body }}</p>
+                    <p>{{ i.price }}</p>
                     <a href="#">اضافه شه به سبد کالا</a>
                 </div>
             {% endfor %}
@@ -39,5 +37,13 @@
         </div>
     </div>
     {% include 'includes/footer.html' %}
+
+    <script>
+        var slt = document.getElementById('id_sort_by')
+        slt.onchange = function(){
+            var button = document.getElementById('clickButton');
+            button.form.submit();
+        }
+    </script>
 </body>
 </html>

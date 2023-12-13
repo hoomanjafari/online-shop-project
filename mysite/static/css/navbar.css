@@ -43,6 +43,18 @@ a {
 }
 .profile-box-container {
     padding: 1.5vw;
+    display: inline-block;
+}
+.basket-icon {
+    display: inline-block;
+    vertical-align: top;
+    padding: 2vw 2vw 0;
+    color: orange !important;
+    font-size: 3vw !important;
+}
+.basket-icon:hover {
+    transform: rotate(40deg);
+    transition: 0.3s;
 }
 .profile-box-container:hover .profile-box {
     visibility: visible;
@@ -81,7 +93,7 @@ a {
     font-size: 4vw;
     padding-right: 1vw;
 }
-.ul-left a:hover {
+.profile-box a:hover {
     background-color: #295BE9;
     opacity: 70%;
     transition: 0.3s;
@@ -146,12 +158,10 @@ a {
         display: none;
     }
     .profile-box-container p {
-        /*padding: 1.5vw;*/
         color: white;
         font-size: 4vw;
     }
     .profile-box-container i {
-        /*padding: 1.5vw;*/
         padding-right: 3vw;
         color: white;
         font-size: 7vw;
@@ -175,7 +185,7 @@ a {
     }
 }
 
-/* ========================( responsiv navbar )==================================== */
+/* ========================( responsive navbar )==================================== */
 .nav-response-fixed {
     position: fixed;
     background-color: #1D222F;
@@ -314,5 +324,8 @@ a {
 @media (max-width: 767.98px) {
     .nav-response-fixed {
         display: block;
+    }
+    .basket-icon {
+        font-size: 6vw !important;
     }
 }

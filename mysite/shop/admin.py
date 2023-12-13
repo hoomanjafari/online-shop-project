@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Shop
+from .models import Shop, ShoingBag
 
 
 class ShopAdmin(admin.ModelAdmin):
@@ -7,3 +7,4 @@ class ShopAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Shop, ShopAdmin)
+admin.site.register(ShoingBag)

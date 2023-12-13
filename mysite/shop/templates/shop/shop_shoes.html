@@ -13,6 +13,7 @@
 <body>
     {% include 'includes/login-form.html' %}
     {% include 'includes/navbar.html' %}
+    {% include 'includes/messages.html' %}
     <div class="shoping-content">
         <div class="shoping-container">
             <div class="shoping-sort-by">
@@ -26,15 +27,24 @@
             <div class="shoping-main-content">
             {% for i in shoes %}
                 <div class="shoping-items">
-                    <img src="{{ i.image.url }}" alt="">
-                    <h2>{{ i.subject }}</h2>
-                    <p>{{ i.body }}</p>
-                    <p>{{ i.price }}</p>
-                    <a href="#">اضافه شه به سبد کالا</a>
+                    <a href="{% url 'shop:shoes_detail' i.id %}">
+                        <img src="{{ i.image.url }}" alt="">
+                        <h2>{{ i.subject }}</h2>
+                        <p>{{ i.body }}</p>
+                        <p>{{ i.price }}</p>
+                    </a>
                 </div>
             {% endfor %}
             </div>
         </div>
+    </div>
+    <div style="background-color: orange; font-size: 3vw">
+        {% for i in request.user.customer_related.all %}
+            <div>
+                {{ i.item.subject }} {{ i.item.body }}
+                <img src="{{ i.item.image.url }}" width="60vw" height="60vw">
+            </div>
+        {% endfor %}
     </div>
     {% include 'includes/footer.html' %}
 

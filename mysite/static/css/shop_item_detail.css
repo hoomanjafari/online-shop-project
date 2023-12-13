@@ -1,0 +1,132 @@
+body {
+    background-color: #12151C;
+}
+
+* {
+    margin: 0;
+}
+
+.shoping-items {
+    background-color: white;
+}
+
+.shoping-items img {
+    width: 100%;
+    height: 100%;
+}
+
+.shoping-items p {
+    margin: 2vw 0;
+}
+
+.item-price h2 {
+    margin-bottom: 2vw;
+    font-size: 3vw;
+    padding: 0 1vw 0;
+}
+
+.item-price i {
+    padding: 1vw;
+}
+
+.item-price a {
+    color: white;
+    padding: 1vw;
+    font-size: 2vw;
+    background-color: #295BE9;
+    border-radius: 2vw;
+}
+
+.item-price a:hover {
+    opacity: 80%;
+}
+
+.shop-item-details {
+    text-align: center;
+    padding: 2vw;
+    font-size: 2vw;
+    background-color: white;
+    margin: 0 auto 2vw;
+    width: 60%;
+}
+
+.item-price {
+    background-color: white;
+    width: 20vw;
+    display: inline-block;
+    vertical-align: top;
+    padding: 2vw;
+}
+
+.shop-items-container {
+    padding: 0 0 6vw 6vw;
+}
+
+.shoping-items {
+    width: 50%;
+    height: 33vw;
+    padding: 6vw;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+}
+.alert-success {
+    width: 30vw;
+    padding: 1vw;
+    margin: 0 auto 3vw;
+    text-align: center;
+    border-radius: 1vw;
+    background-color: rgba(0, 128, 0, 0.56);
+    color: white;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: 1.6vw;
+}
+@media (max-width: 767.98px) {
+
+    .shop-item-details {
+        width: 100%;
+        display: block;
+        font-size: 6vw;
+        padding: 6vw 0;
+    }
+
+    .shoping-items img {
+        width: 90%;
+        height: 100%;
+    }
+
+    .shoping-items {
+        width: 100%;
+        height: 70vw;
+        display: block;
+        padding: 3vw 0;
+    }
+
+    .shop-items-container {
+        padding: 30vw 6vw;
+    }
+
+    .item-price {
+        width: 100%;
+        margin: 2vw 0;
+        padding: 6vw 0;
+        text-align: center;
+    }
+
+    .item-price a {
+        padding: 3vw;
+        font-size: 6vw;
+    }
+
+    .item-price h2 {
+        margin-bottom: 6vw;
+        font-size: 6vw;
+        padding: 0 1vw 0;
+    }
+    .alert-success {
+        position: relative;
+        top: 26vw;
+        font-size: 2.6vw;
+        padding: 3vw;
+    }
+}

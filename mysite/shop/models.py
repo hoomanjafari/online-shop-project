@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Shop(models.Model):
@@ -12,4 +13,12 @@ class Shop(models.Model):
     added_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
-        return f'{self. subject} -- {self.body}'
+        return f'{self. subject} -- {self.body} -- {self.image}'
+
+
+class ShoingBag(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='customer_related')
+    item = models.ForeignKey(Shop, on_delete=models.CASCADE, related_name='item_related')
+
+    def __str__(self):
+        return f'{self.customer} -- want to buy : {self.item}'

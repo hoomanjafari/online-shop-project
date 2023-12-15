@@ -1,0 +1,140 @@
+body {
+    background-color: #12151c;
+}
+
+* {
+    margin: 0;
+}
+
+.checkout-container {
+    padding: 1vw;
+}
+
+
+.checkout-bag-shop {
+    position: absolute;
+    display: inline-block;
+    background-color: #dbdada;
+    width: calc(calc(50%) - 1vw);
+    margin-left: 1vw;
+    padding: 1vw 0 1vw 1vw;
+}
+
+.checkout-bag-shop img {
+    display: inline-block;
+    width: 6vw;
+    height: 6vw;
+    margin-right: 1vw;
+}
+
+.checkout-bag-shop-details {
+    display: inline-block;
+    margin-bottom: 3vw;
+}
+
+.checkout-bag-shop-details p {
+    margin: 0.5vw 0;
+}
+
+.total-cost {
+    border-top: 1px solid black;
+    padding: 1vw;
+}
+
+.total-cost h1,
+p {
+    display: inline-block;
+}
+
+.total-cost h1 {
+    margin-right: 12vw;
+}
+.total-cost a {
+    text-decoration: none;
+    font-size: 2vw;
+    display: block;
+    text-align: center;
+    margin: 4vw auto 2vw;
+    background-color: rgb(32, 168, 32);
+    color: white;
+    padding: 1vw 0;
+    width: 40vw;
+    border-radius: 1vw;
+}
+.total-cost a:hover {
+    font-size: 2.2vw;
+    background-color: rgb(32, 32, 255);
+    transition: 0.1s;
+}
+.checkout-user-details {
+    display: inline-block;
+    background-color: #FFFFFF;
+    width: calc(calc(50%) - 1vw);
+}
+.checkout-user-details form {
+    padding: 2vw;
+}
+.checkout-user-details input, select {
+    width: 70%;
+    display: block;
+    padding: 0.5vw;
+    font-size: 1.3vw;
+    margin-bottom: 2vw;
+    border: none;
+    background-color: #dbdada;
+}
+
+.checkout-user-details label {
+    font-size: 1.6vw;
+}
+
+@media (max-width: 767.98px) {
+    .checkout-user-details {
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 10vw 0 0 0;
+    }
+    .checkout-bag-shop {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .checkout-user-details form {
+        padding: 6vw;
+        margin: 0;
+    }
+    .checkout-bag-shop img {
+        width: 22vw;
+        height: 22vw;
+        margin-right: 1vw;
+    }
+    .total-cost {
+        padding-top: 8vw;
+    }
+    .checkout-bag-shop-item {
+        padding: 6vw;
+    }
+    .total-cost p {
+        font-size: 6vw;
+    }
+    .total-cost {
+        padding: 7vw;
+    }
+    .total-cost a { 
+        font-size: 6vw;
+        padding: 3vw 0;
+    }
+    .checkout-user-details input, select {
+        padding: 1.5vw;
+        font-size: 3.5vw;
+        margin-bottom: 4vw;
+    }
+    .checkout-user-details label {
+        font-size: 5.6vw;
+    }
+    .checkout-container {
+        padding: 9vw;   
+    }
+}

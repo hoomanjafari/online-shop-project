@@ -40,3 +40,10 @@ class AddItem(View):
             add_item = get_object_or_404(Shop, pk=kwargs['pk'])
             messages.error(request, 'قبل از انتخاب محصول خود لطفا وارد حساب کاربریتون شوید', 'success')
             return redirect('shop:shoes_detail', add_item.id)
+
+
+class CheckoutView(View):
+    def get(self, request):
+        register_form = UserRegisterForm
+        login_form = UserLoginForm
+        return render(request, 'shop/checkout.html', {'register_form': register_form, 'login_form': login_form})

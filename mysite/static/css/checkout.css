@@ -15,9 +15,11 @@ body {
     position: absolute;
     display: inline-block;
     background-color: #dbdada;
-    width: calc(calc(50%) - 1vw);
+    width: calc(calc(50%) - 3vw);
+    height: 43vw;
     margin-left: 1vw;
     padding: 1vw 0 1vw 1vw;
+    overflow: scroll;
 }
 
 .checkout-bag-shop img {
@@ -29,7 +31,6 @@ body {
 
 .checkout-bag-shop-details {
     display: inline-block;
-    margin-bottom: 3vw;
 }
 
 .checkout-bag-shop-details p {
@@ -37,17 +38,16 @@ body {
 }
 
 .total-cost {
-    border-top: 1px solid black;
+    background-color: white;
     padding: 1vw;
-}
-
-.total-cost h1,
-p {
-    display: inline-block;
+    width: 40vw;
+    border-radius: 1vw;
+    margin: 2vw auto;
+    text-align: center;
 }
 
 .total-cost h1 {
-    margin-right: 12vw;
+    padding-bottom: 1vw;
 }
 .total-cost a {
     text-decoration: none;
@@ -58,7 +58,7 @@ p {
     background-color: rgb(32, 168, 32);
     color: white;
     padding: 1vw 0;
-    width: 40vw;
+    width: 30vw;
     border-radius: 1vw;
 }
 .total-cost a:hover {
@@ -88,6 +88,24 @@ p {
     font-size: 1.6vw;
 }
 
+.checkout-bag-shop-item {
+    border-bottom: 1px solid black;
+    margin-bottom: 1vw;
+    padding-bottom: 1vw;
+}
+.checkout-bag-shop-item a {
+    background-color: #b71111;
+    color: white;
+    border-radius: 3vw;
+    padding: 0.5vw;
+    /*font-weight: 550;*/
+}
+
+.checkout-bag-shop-item a:hover {
+    font-size: 1vw;
+    transition: 0.3s;
+}
+
 @media (max-width: 767.98px) {
     .checkout-user-details {
         position: relative;
@@ -98,8 +116,9 @@ p {
     .checkout-bag-shop {
         position: relative;
         width: 100%;
+        height: 60vw;
         padding: 0;
-        margin: 0;
+        margin: 6vw 0;
     }
     .checkout-user-details form {
         padding: 6vw;
@@ -111,16 +130,14 @@ p {
         margin-right: 1vw;
     }
     .total-cost {
-        padding-top: 8vw;
+        width: 100%;
+        padding: 3vw 0;
     }
     .checkout-bag-shop-item {
         padding: 6vw;
     }
     .total-cost p {
         font-size: 6vw;
-    }
-    .total-cost {
-        padding: 7vw;
     }
     .total-cost a { 
         font-size: 6vw;

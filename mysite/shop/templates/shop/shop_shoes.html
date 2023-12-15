@@ -38,14 +38,7 @@
             </div>
         </div>
     </div>
-    <div style="background-color: orange; font-size: 3vw">
-        {% for i in request.user.customer_related.all %}
-            <div>
-                {{ i.item.subject }} {{ i.item.body }}
-                <img src="{{ i.item.image.url }}" width="60vw" height="60vw">
-            </div>
-        {% endfor %}
-    </div>
+    
     {% include 'includes/footer.html' %}
 
     <script>

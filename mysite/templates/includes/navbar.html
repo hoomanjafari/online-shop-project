@@ -12,7 +12,7 @@
                     <a href="{% url 'accounts:logout' %}">خروج از حساب</a>
                 </div>
             </div>
-            <a href="{% url 'shop:checkout' %}"><i class="basket-icon fa fa-shopping-bag"></i></a>
+            <a href="{% url 'shop:checkout' %}"><i class="basket-icon fa fa-shopping-bag"><p>{{ user_bag }}</p></i></a>
         {% endif %}
     </ul>
     <ul class="ul-middle">
@@ -23,8 +23,8 @@
             <div class="dropdown-content">
                 <div>
                     <a href="{% url 'shop:shop-shoes' %}">کفش</a>
-                    <a href="#">کیف</a>
-                    <a href="#">شال</a>
+                    <a href="{% url 'shop:shop-shoes' %}" disabled>کیف</a>
+                    <a href="{% url 'shop:shop-shoes' %}">شال</a>
                 </div>
             </div>
         </li>
@@ -54,7 +54,7 @@
                     <a href="{% url 'accounts:logout' %}">خروج از حساب</a>
                 </div>
             </div>
-            <a href="{% url 'shop:checkout' %}"><i class="basket-icon fa fa-shopping-bag"></i></a>
+            <a href="{% url 'shop:checkout' %}"><i class="basket-icon fa fa-shopping-bag"><p>{{ user_bag }}</p></i></a>
             </li>
         {% endif %}
         <li><a href="#"><i class="fa fa-search"></i></a></li>

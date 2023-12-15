@@ -3,7 +3,7 @@ from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.mixins import LoginRequiredMixin
+from shop.models import ShoingBag
 from .forms import UserRegisterForm, UserLoginForm, ProfileEditForm
 
 
@@ -48,7 +48,8 @@ class AccountView(View):
             return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
-        return render(request, 'accounts/profile.html')
+        user_bag = ShoingBag.objects.filter(customer=request.user).count()
+        return render(request, 'accounts/profile.html', {'user_bag': user_bag})
 
 
 class AccountDetailView(View):
@@ -60,8 +61,9 @@ class AccountDetailView(View):
             
     def get(self, request):
         profile_edit = ProfileEditForm(instance=request.user.profile_related)
+        user_bag = ShoingBag.objects.filter(customer=request.user).count()
         return render(request, 'accounts/profile-details.html', {
-            'profile_edit': profile_edit
+            'profile_edit': profile_edit, 'user_bag': user_bag
         })
 
     def post(self, request, **kwargs):
@@ -81,7 +83,9 @@ class AccountDetailView(View):
                 user = get_object_or_404(User, pk=request.user.id)
                 user.set_password(cd['new_password'])
                 user.save()
-                messages.success(request, 'تغییرات اعمال شدن و رمز عبور شما تغییر کرد لطفا دوباره وارد حساب کاربری خود شوید', 'success')
+                messages.success(
+                    request, 'تغییرات اعمال شدن و رمز عبور شما تغییر کرد لطفا دوباره وارد حساب کاربری خود شوید', 'success'
+                )
                 return redirect('home:home')
         else:
             return render(request, 'accounts/profile-details.html', {'profile_edit': form})

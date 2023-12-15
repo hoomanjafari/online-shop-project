@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     {% include 'includes/login-form.html' %}
     {% include 'includes/navbar.html' %}
     {% include 'includes/messages.html' %}
@@ -73,8 +74,9 @@
         </div>
 
         <div class="checkout-bag-shop">
-            {% for i in request.user.customer_related.all %}
+            {% for i in cart_item %}
                 <div class="checkout-bag-shop-item">
+                    <a href="{% url 'shop:delete_item' i.id %}" title="حذف"><i class="fa fa-close"></i></a>
                     <img src="{{ i.item.image.url }}">
                     <div class="checkout-bag-shop-details">
                         <h3>{{ i.item.subject }}</h3>
@@ -85,18 +87,15 @@
                     </div>
                 </div>
             {% endfor %}
-            <div class="total-cost">
-                <h1>جمع کل</h1>
-                {% for i in request.user.customer_related.all %}
-{#                <p>1.66.999 تومان</p>#}
-                    <p>{{ i.item.total_price }}</p>
-                {% endfor %}
-                <a href="#">پرداخت</a>
-            </div>
+        </div>
+        <div class="total-cost">
+            <h1>جمع کل</h1>
+            <h2>{{ total_price }} تومان</h2>
+            <a href="#">پرداخت</a>
         </div>
     </div>
 
-{% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
 </body>
 
 </html>

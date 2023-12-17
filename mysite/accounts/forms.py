@@ -6,7 +6,7 @@ from .models import Profile
 
 class UserRegisterForm(forms.Form):
     email = forms.EmailField(label='ایمیل ')
-    password = forms.CharField(label='رمز ورود ')
+    password = forms.CharField(label='رمز ورود ', widget=forms.PasswordInput())
 
     def clean_email(self):
         form_email = self.cleaned_data['email']
@@ -19,7 +19,7 @@ class UserRegisterForm(forms.Form):
 
 class UserLoginForm(forms.Form):
     email = forms.EmailField(label='ایمیل ')
-    password = forms.CharField(label='رمز ورود ')
+    password = forms.CharField(label='رمز ورود ', widget=forms.PasswordInput())
 
 
 class ProfileEditForm(forms.ModelForm):

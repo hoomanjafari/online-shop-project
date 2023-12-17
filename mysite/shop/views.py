@@ -12,7 +12,9 @@ class ShopView(View):
         register_form = UserRegisterForm
         login_form = UserLoginForm
         shoes = Shop.objects.all().filter(shoes=True)
-        user_bag = ShoingBag.objects.filter(customer=request.user).count()
+        user_bag = ''
+        if request.user.is_authenticated:
+            user_bag = ShoingBag.objects.filter(customer=request.user).count()
         if request.GET.get('sort_by'):
             shoes = Shop.objects.all().filter(shoes=True).order_by(request.GET['sort_by'])
         return render(request, 'shop/shop_shoes.html', {

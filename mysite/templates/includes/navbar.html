@@ -16,7 +16,7 @@
         {% endif %}
     </ul>
     <ul class="ul-middle">
-        <li><a href="#">درباره ما</a></li>
+        <li><a href="{% url 'about:about_us' %}">درباره ما</a></li>
         <li class="dropdown">
             <i class="fa fa-arrow-down"></i>
             محصولات
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </li>
-        <li><a href="#">ارتباط با ما</a></li>
+        <li><a href="{% url 'contact:contact' %}">ارتباط با ما</a></li>
     </ul>
     <ul class="ul-right">
         <li><a href="#"><i class="fa fa-search"></i></a></li>
@@ -61,10 +61,7 @@
         <li><a href="{% url 'home:home' %}"><i class="fa fa-home"></i></a></li>
     </ul>
 </nav>
-{#<div class="profile-box">#}
-{#    <a href="#">پنل کاربری</a>#}
-{#    <a href="{% url 'accounts:logout' %}">خروج از حساب</a>#}
-{#</div>#}
+
 <!-- ----------------------------------------------------------- -->
 
 <nav class="nav-responsive" id="nav-responsive">
@@ -86,15 +83,15 @@
             <a href="#"> محصولات </a>
             <div class="dropleft-content">
                 <a href="{% url 'shop:shop-shoes' %}">کفش</a>
-                <a href="#">کیف</a>
-                <a href="#">شال</a>
+                <a href="{% url 'shop:shop-shoes' %}">کیف</a>
+                <a href="{% url 'shop:shop-shoes' %}">شال</a>
             </div>
         </li>
         <li>
-            <a href="#">ارتباط با ما</a>
+            <a href="{% url 'contact:contact' %}">ارتباط با ما</a>
         </li>
         <li>
-            <a href="#">درباره ما</a>
+            <a href="{% url 'about:about_us' %}">درباره ما</a>
         </li>
     </ul>
 </nav>

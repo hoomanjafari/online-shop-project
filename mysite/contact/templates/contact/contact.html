@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/contact.css">
+    <link rel="stylesheet" href="/static/css/login-form.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>ارتباط با ما</title>
+</head>
+
+<body>
+    {% include 'includes/navbar.html' %}
+    {% include 'includes/login-form.html' %}
+    {% include 'includes/messages.html' %}
+    <div class="contact-container">
+        <div class="contact-detail">
+            <h1>چگونه ما میتوانیم به شما کمک کنیم؟
+            </h1>
+            <p>سوالات، افکار و ایده های خود را با استفاده از فرم زیر با ما در میان بگذارید. تیم پشتیبانی ما در اسرع وقت
+                با شما تماس خواهند گرفت. در صورت داشتن درخواست فوری، می توانید با شماره تلفن 12 1234 1234-1234 یا ایمیل
+                (service@test-shoes.com) با ما تماس بگیرید.</p>
+            <p>
+                برای اینکه بتوانیم به بهترین شکل ممکن به شما کمک کنیم، از شما می خواهیم شماره سفارش خود را در فرم
+                بنویسید.
+            </p>
+        </div>
+
+        <form method="post" class="contact-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">ارسال</button>
+        </form>
+    </div>
+    {% include 'includes/footer.html' %}
+</body>
+
+</html>

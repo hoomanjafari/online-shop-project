@@ -30,8 +30,6 @@ a {
 .ul-left {
     float: left;
     margin: 0;
-    /*padding: 1.5vw;*/
-    cursor: pointer;
 }
 .profile-box {
     width: 10vw;

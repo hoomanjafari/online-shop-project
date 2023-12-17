@@ -81,7 +81,7 @@ body {
         border-bottom: 2px solid black;
         background-color: rgb(255, 255, 255);
         text-align: center;
-        padding: 3vw 0;
+        padding: 26vw 0 3vw 0;
     }
     .shoping-sort-by select {
         font-size: 6vw;

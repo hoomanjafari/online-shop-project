@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما</title>
+    <link rel="stylesheet" href="/static/css/about-us.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/login-form.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    {% include 'includes/login-form.html' %}
+    <header>
+        {% include 'includes/navbar.html' %}
+        {% include 'includes/messages.html' %}
+        <div class="header-container">
+            <img src="/static/images/about-us-header-img.jpg">
+        </div>
+    </header>
+
+    <div class="about-content">
+        <div class="about-content-first-container">
+            <div class="about-content-firs-item">
+                <h1>فناوری با طراحی روبرو می شود</h1>
+
+                <p>استودیوهای طراحی در ایتالیا، مراکز صلاحیت در آلمان، مراکز فناوری در رومانی و هند و همچنین یک تیم
+                    طراحی بین المللی. این یعنی ما همیشه یک قدم جلوتر هستیم.
+                </p>
+            </div>
+            <img src="/static/images/about-us-content-img-1.jpg">
+
+            <div class="about-content-2nd-container">
+                <img src="/static/images/about-us-content-img-2.jpg">
+                <div class="about-content-2nd-item">
+                    <h1>ساختارهای ناب، سلسله مراتب مسطح، مسئولیت شخصی بالا
+                    </h1>
+
+                    <p>این ما را قادر می سازد تا به سرعت و انعطاف پذیری نسبت به نیازهای بازار مربوطه واکنش نشان دهیم.
+                        نرخ‌های رشد بسیار بالاتر از میانگین صنعت، سازگاری این مفهوم را ثابت می‌کند. بیش از 400 کارمند
+                        جاه طلب و متعهد در تیم های بسیار شایسته و سلسله مراتب مسطح موفقیت </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'includes/footer.html' %}
+</body>
+
+</html>

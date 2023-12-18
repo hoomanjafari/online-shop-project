@@ -4,12 +4,6 @@
               title="Close Modal">&times;</span>
         <form method="post", action="{% url 'accounts:login' %}">
             {% csrf_token %}
-{#            <label for="login-input-1">نام و نام خانوادگی</label>#}
-{#            <input type="text" id="login-input-1">#}
-{#            <label for="login-input-2">ایمیل</label>#}
-{#            <input type="text" id="login-input-2">#}
-{#            <label for="login-input-3">رمز ورود</label>#}
-{#            <input type="text" id="login-input-3">#}
             {{ login_form.as_p }}
             <button class="login-btn" type="submit">ورود</button>
             <button onclick="SingUp()" class="sign-up-btn" type="button">ثبت نام</button>
@@ -23,10 +17,6 @@
         <form method="post", action="{% url 'accounts:register' %}">
             {% csrf_token %}
             <h2>ایجاد حساب کاربری</h2>
-{#            <label for="login-input-2">ایمیل</label>#}
-{#            <input type="text" id="login-input-2">#}
-{#            <label for="login-input-3">رمز ورود</label>#}
-{#            <input type="text" id="login-input-3">#}
             {{ register_form.as_p }}
             <button class="register-btn" type="submit">ثبت نام</button>
             <button onclick="SingIn()" class="sing-in-btn" type="button">ورود</button>
@@ -42,16 +32,19 @@
 
      var login_form = document.getElementById("login-form");
      window.onclick = function (event) {
-         if (event.target == login_form) {
+         if (event.target === login_form) {
              login_form.style.display = "none"
+         }else if (event.target === search) {
+             search.style.display = 'none'
          }
      }
+
      function SingUp() {
             document.getElementById("login-box").style.display = "none"
             document.getElementById("sign-up-box").style.display = "block"
         }
-        function SingIn() {
-            document.getElementById("sign-up-box").style.display = "none"
-            document.getElementById("login-box").style.display = "block"
-        }
+     function SingIn() {
+         document.getElementById("sign-up-box").style.display = "none"
+         document.getElementById("login-box").style.display = "block"
+     }
  </script>

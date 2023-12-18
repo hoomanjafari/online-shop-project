@@ -31,7 +31,7 @@
         <li><a href="{% url 'contact:contact' %}">ارتباط با ما</a></li>
     </ul>
     <ul class="ul-right">
-        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li><button type="button" onclick="Search()"><i class="fa fa-search"></i></button></li>
         <li><a href="{% url 'home:home' %}"><i class="fa fa-home"></i></a></li>
     </ul>
 </nav>
@@ -57,7 +57,7 @@
             <a href="{% url 'shop:checkout' %}"><i class="basket-icon fa fa-shopping-bag"><p>{{ user_bag }}</p></i></a>
             </li>
         {% endif %}
-        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li><button type="button" onclick="Search()"><i class="fa fa-search"></i></button></li>
         <li><a href="{% url 'home:home' %}"><i class="fa fa-home"></i></a></li>
     </ul>
 </nav>
@@ -69,9 +69,9 @@
         <button class="btn-cross" onclick="CloseMenu()"><i class="fa fa-window-close"></i></button>
 
 
-        <form class="nav-search-box">
-            <input type="search" placeholder="... جستجو">
-            <button type="button"><i class="fa fa-search"></i></button>
+        <form method="get" action="{% url 'search:search-page' %}" class="nav-search-box">
+            {{ search_form.as_p }}
+            <button type="submit"><i class="fa fa-search"></i></button>
         </form>
 
         <li>

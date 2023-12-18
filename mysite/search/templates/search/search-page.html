@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/search-page.css">
+    <link rel="stylesheet" href="/static/css/search-box.css">
+    <link rel="stylesheet" href="/static/css/login-form.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>جستجو</title>
+</head>
+<body>
+    {% include 'includes/search-box.html' %}
+    {% include 'includes/login-form.html' %}
+    {% include 'includes/navbar.html' %}
+
+    <div class="searched-container">
+        <div class="searched_result">
+            <div class="searched_subject">
+                <p>نتیجه جستجو شما</p>
+                <i class="fa fa-arrow-down"></i>
+            </div>
+            {% for i in searched %}
+            <div class="searched_result_item">
+                <a href="{% url 'shop:shoes_detail' i.id %}">
+                    <img src="{{ i.image.url }}" alt="">
+                    <h2>{{ i.subject }}</h2>
+                    <p>{{ i.body }}</p>
+                    <p>{{ i.price }}</p>
+                </a>
+            </div>
+            {% empty %}
+                <p class="empty_p">!هیچ چیزی  مشابه جستجوی شما پیدا نشد</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'includes/footer.html' %}
+</body>
+</html>

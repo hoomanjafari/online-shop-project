@@ -4,6 +4,7 @@ from django.views import View
 from shop.models import ShoingBag
 from .forms import ContactForm
 from accounts.forms import UserLoginForm, UserRegisterForm
+from search.forms import SearchForm
 
 
 class ContactView(View):
@@ -14,7 +15,8 @@ class ContactView(View):
         if request.user.is_authenticated:
             user_bag = ShoingBag.objects.filter(customer=request.user).count()
         return render(request, 'contact/contact.html', {
-            'user_bag': user_bag, 'form': ContactForm, 'login_form': login_form, 'register_form': register_form
+            'user_bag': user_bag, 'form': ContactForm, 'login_form': login_form, 'register_form': register_form,
+            'search_form': SearchForm
         })
 
     def post(self, request):

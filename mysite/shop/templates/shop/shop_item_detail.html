@@ -8,27 +8,29 @@
     <link rel="stylesheet" href="/static/css/shop_item_detail.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/search-box.css">
     <link rel="stylesheet" href="/static/css/login-form.css">
 </head>
 <body>
-{% include 'includes/login-form.html' %}
-{% include 'includes/navbar.html' %}
-{% include 'includes/messages.html' %}
-<div class="shop-item_detail"></div>
-    <div class="shop-items-container">
-        <div class="shop-item-details">
-            <h2>{{ item.subject }}</h2>
-            <p>{{ item.body }}</p>
+    {% include 'includes/search-box.html' %}
+    {% include 'includes/login-form.html' %}
+    {% include 'includes/navbar.html' %}
+    {% include 'includes/messages.html' %}
+    <div class="shop-item_detail"></div>
+        <div class="shop-items-container">
+            <div class="shop-item-details">
+                <h2>{{ item.subject }}</h2>
+                <p>{{ item.body }}</p>
+            </div>
+            <div class="item-price">
+                <h2>قیمت<i class="fa fa-arrow-down"></i></h2>
+                <h2>{{ item.price }}<p> تومان</p></h2>
+                <a href="{% url 'shop:add_item' item.id%}">اضافه کن به سبد خرید</a>
+            </div>
+            <div class="shoping-items">
+                <img src="{{ item.image.url }}" alt="">
+            </div>
         </div>
-        <div class="item-price">
-            <h2>قیمت<i class="fa fa-arrow-down"></i></h2>
-            <h2>{{ item.price }}<p> تومان</p></h2>
-            <a href="{% url 'shop:add_item' item.id%}">اضافه کن به سبد خرید</a>
-        </div>
-        <div class="shoping-items">
-            <img src="{{ item.image.url }}" alt="">
-        </div>
-    </div>
-{% include 'includes/footer.html' %}
+    {% include 'includes/footer.html' %}
 </body>
 </html>

@@ -4,6 +4,7 @@ from django.views import View
 from accounts.forms import UserLoginForm, UserRegisterForm
 from shop.models import ShoingBag
 from .forms import HomeContactForm
+from search.forms import SearchForm
 
 
 class HomeView(View):
@@ -14,7 +15,8 @@ class HomeView(View):
         if request.user.is_authenticated:
             user_bag = ShoingBag.objects.filter(customer=request.user).count()
         return render(request, 'home/index.html', {
-            'register_form': register_form, 'login_form': login_form, 'user_bag': user_bag, 'form': HomeContactForm
+            'register_form': register_form, 'login_form': login_form, 'user_bag': user_bag, 'form': HomeContactForm,
+            'search_form': SearchForm
         })
 
 

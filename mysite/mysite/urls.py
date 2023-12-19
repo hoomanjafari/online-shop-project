@@ -27,6 +27,7 @@ urlpatterns = [
     path('shop/', include('shop.urls', namespace='shop')),
     path('contact/', include('contact.urls', namespace='contact')),
     path('about_us/', include('about.urls', namespace='about')),
+    path('search/', include('search.urls', namespace='search')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

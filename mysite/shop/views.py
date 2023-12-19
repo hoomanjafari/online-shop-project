@@ -4,6 +4,7 @@ from accounts.forms import UserLoginForm, UserRegisterForm
 from django.contrib import messages
 from .models import Shop, ShoingBag
 from .forms import ShopSortByForm
+from search.forms import SearchForm
 
 
 class ShopView(View):
@@ -19,7 +20,7 @@ class ShopView(View):
             shoes = Shop.objects.all().filter(shoes=True).order_by(request.GET['sort_by'])
         return render(request, 'shop/shop_shoes.html', {
             'register_form': register_form, 'login_form': login_form, 'shoes': shoes, 'shop_select': shop_select,
-            'user_bag': user_bag
+            'user_bag': user_bag, 'search_form': SearchForm
         })
 
 
@@ -27,10 +28,13 @@ class ShopItemDetail(View):
     def get(self, request, **kwargs):
         register_form = UserRegisterForm
         login_form = UserLoginForm
-        user_bag = ShoingBag.objects.filter(customer=request.user).count()
+        user_bag = ''
+        if request.user.is_authenticated:
+            user_bag = ShoingBag.objects.filter(customer=request.user).count()
         item = get_object_or_404(Shop, pk=kwargs['pk'])
         return render(request, 'shop/shop_item_detail.html', {
-            'item': item, 'register_form': register_form, 'login_form': login_form, 'user_bag': user_bag
+            'item': item, 'register_form': register_form, 'login_form': login_form, 'user_bag': user_bag,
+            'search_form': SearchForm
         })
 
 
@@ -38,7 +42,7 @@ class AddItem(View):
     def get(self, request, **kwargs):
         if request.user.is_authenticated:
             add_item = get_object_or_404(Shop, pk=kwargs['pk'])
-            already_added = ShoingBag.objects.filter(customer=request.user)
+            already_added = ShoingBag.objects.filter(customer=request.user, item=add_item.id)
             if not already_added:
                 ShoingBag.objects.create(customer=request.user, item=add_item)
                 messages.success(request, 'اضافه شد به سبد خریدتون', 'success')
@@ -80,5 +84,5 @@ class CheckoutView(View):
             total_price += i.item.price
         return render(request, 'shop/checkout.html', {
             'register_form': register_form, 'login_form': login_form, 'total_price': total_price, 'cart_item': cart_item,
-            'user_bag': user_bag
+            'user_bag': user_bag, 'search_form': SearchForm
         })

@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/search-box.css">
     <link rel="stylesheet" href="/static/css/login-form.css">
 </head>
 <body>
+    {% include 'includes/search-box.html' %}
     {% include 'includes/login-form.html' %}
     {% include 'includes/navbar.html' %}
     {% include 'includes/messages.html' %}
@@ -31,7 +33,7 @@
                         <img src="{{ i.image.url }}" alt="">
                         <h2>{{ i.subject }}</h2>
                         <p>{{ i.body }}</p>
-                        <p>{{ i.price }}</p>
+                        <p>{{ i.price }}تومان</p>
                     </a>
                 </div>
             {% endfor %}

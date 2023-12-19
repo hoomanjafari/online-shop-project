@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'contact.apps.ContactConfig',
     'about.apps.AboutConfig',
+    'search.apps.SearchConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,25 @@
+<!-- ================( search-box )======================== -->
+<div class="search-container" id="search-container">
+    <div class="search-box animate">
+        <form method="get" action="{% url 'search:search-page' %}">
+            <p>محصول خود را جستجو کنید (مثلا کفش زنانه ...)</p>
+            {{ search_form.as_p }}
+            <button type="submit"><i class="fa fa-search"></i></button>
+            <h3>( برای بسته شدن این قسمت ... خارج از کادر سرچ کلیک کنید )</h3>
+        </form>
+    </div>
+</div>
+
+<!-- ================( search-box js )======================== -->
+<script>
+    function Search() {
+        document.getElementById('search-container').style.display = 'block'
+    }
+
+    var search = document.getElementById('search-container')
+    window.onclick = function(event) {
+        if (event.target === search) {
+            search.style.display = 'none'
+        }
+    }
+</script>

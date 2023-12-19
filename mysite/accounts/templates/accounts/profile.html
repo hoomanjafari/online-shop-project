@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="/static/css/profile.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/search-box.css">
     <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+    {% include 'includes/search-box.html' %}
     {% include 'includes/navbar.html' %}
 
     <div class="profile-content-container">
@@ -26,7 +28,7 @@
                     <li class="user-profile-icon"><i class="fa fa-user"></i></li>
                     <li><i class="fa fa-arrow-right arrow-right"></i><a href="{% url 'accounts:account' %}">پیشخوان</a></li>
                     <li><a href="{% url 'accounts:account-detail' %}">جزئیات حساب</a><i class="fa fa-user"></i></li>
-                    <li><a href="#">محصولات خریداری شده</a><i class="fa fa-shopping-bag"></i></li>
+{#                    <li><a href="#">محصولات خریداری شده</a><i class="fa fa-shopping-bag"></i></li>#}
                     <li><a href="{% url 'accounts:logout' %}">خروج از حساب</a><i class="fa fa-sign-out"></i></li>
                 </ul>
             </div>

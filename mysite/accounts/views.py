@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from shop.models import ShoingBag
 from .forms import UserRegisterForm, UserLoginForm, ProfileEditForm
+from search.forms import SearchForm
 
 
 class UserRegisterView(View):
@@ -49,7 +50,7 @@ class AccountView(View):
 
     def get(self, request):
         user_bag = ShoingBag.objects.filter(customer=request.user).count()
-        return render(request, 'accounts/profile.html', {'user_bag': user_bag})
+        return render(request, 'accounts/profile.html', {'user_bag': user_bag, 'search_form': SearchForm})
 
 
 class AccountDetailView(View):
@@ -63,7 +64,7 @@ class AccountDetailView(View):
         profile_edit = ProfileEditForm(instance=request.user.profile_related)
         user_bag = ShoingBag.objects.filter(customer=request.user).count()
         return render(request, 'accounts/profile-details.html', {
-            'profile_edit': profile_edit, 'user_bag': user_bag
+            'profile_edit': profile_edit, 'user_bag': user_bag, 'search_form': SearchForm
         })
 
     def post(self, request, **kwargs):

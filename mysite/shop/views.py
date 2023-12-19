@@ -42,7 +42,7 @@ class AddItem(View):
     def get(self, request, **kwargs):
         if request.user.is_authenticated:
             add_item = get_object_or_404(Shop, pk=kwargs['pk'])
-            already_added = ShoingBag.objects.filter(customer=request.user)
+            already_added = ShoingBag.objects.filter(customer=request.user, item=add_item.id)
             if not already_added:
                 ShoingBag.objects.create(customer=request.user, item=add_item)
                 messages.success(request, 'اضافه شد به سبد خریدتون', 'success')

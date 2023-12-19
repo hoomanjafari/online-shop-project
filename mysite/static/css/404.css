@@ -1,0 +1,36 @@
+body {
+    background-color: #12151C;
+}
+
+* {
+    margin: 0;
+}
+
+.error404-content {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    width: 40vw;
+    text-align: center;
+    color: white;
+}
+
+.error404-content h1 {
+    font-size: 6vw;
+    padding: 2vw;
+}
+
+.error404-content p {
+    font-size: 1.6vw;
+    padding: 0.6vw;
+    margin-bottom: 1vw;
+}
+
+.error404-content a {
+    text-decoration: none;
+    padding: 0.6vw;
+    font-size: 1.6vw;
+    background-color: #295be9;
+    color: white;
+    border-radius: 1vw;
+}

@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 class Shop(models.Model):
     image = models.ImageField(upload_to='img/%y')
-    subject = models.CharField(max_length=12)
-    body = models.CharField(max_length=17)
+    subject = models.CharField(max_length=16)
+    body = models.CharField(max_length=19)
     price = models.FloatField(null=True, blank=True)
     shoes = models.BooleanField(default=False)
     bag = models.BooleanField(default=False)
